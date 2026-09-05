@@ -382,7 +382,7 @@ static void readCallback(CFSocketRef cfSocket, CFSocketCallBackType type,
 
     // fire off another disconnect notice
     if (_id != -1) {
-      UInt8 data[2] = {BS_REMOTE_MSG_DISCONNECT, _id};
+        UInt8 data[2] = {BS_REMOTE_MSG_DISCONNECT, static_cast<UInt8>(_id)};
       if (_haveV4) {
         send(_socket4, data, sizeof(data), 0);
       }
@@ -1449,7 +1449,7 @@ static void readCallback(CFSocketRef cfSocket, CFSocketCallBackType type,
   // shoot off a disconnect immediately.. (subsequent attempts will happen in
   // process())
   if (_id != -1) {
-    UInt8 data[2] = {BS_REMOTE_MSG_DISCONNECT, _id};
+      UInt8 data[2] = {BS_REMOTE_MSG_DISCONNECT, static_cast<UInt8>(_id)};
 
     if (_haveV4) {
       send(_socket4, data, sizeof(data), 0);
@@ -1470,7 +1470,7 @@ static void readCallback(CFSocketRef cfSocket, CFSocketCallBackType type,
   // our character (if they don't get it they'll have to wait for us to
   // time-out)
   if (_id != -1) {
-    UInt8 data[2] = {BS_REMOTE_MSG_DISCONNECT, _id};
+      UInt8 data[2] = {BS_REMOTE_MSG_DISCONNECT, static_cast<UInt8>(_id)};
 
     if (_haveV4) {
       send(_socket4, data, sizeof(data), 0);

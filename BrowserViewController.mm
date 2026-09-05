@@ -579,7 +579,7 @@ static void readCallback(CFSocketRef cfSocket, CFSocketCallBackType type,
     cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                    reuseIdentifier:tableCellIdentifier]
         autorelease];
-    cell.textLabel.textAlignment = UITextAlignmentCenter;
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.backgroundColor = [UIColor clearColor];
   }
 

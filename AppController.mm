@@ -4,6 +4,10 @@
 #import "RemoteViewController.h"
 #import "UIViewUtilities.h"
 #import <GameController/GCController.h>
+#import <GameController/GCExtendedGamepad.h>
+#import <GameController/GCControllerDirectionPad.h>
+#import <GameController/GCControllerButtonInput.h>
+#import <GameController/GCGamepad.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
@@ -151,7 +155,7 @@ AppController *gApp;
   // (we dont really use this, but it looks prettier than ambiguous flashing or
   // whatnot)
   if (controller.playerIndex == GCControllerPlayerIndexUnset) {
-    controller.playerIndex = 0;
+    controller.playerIndex = GCControllerPlayerIndex1;
   }
 
   // if they have the extended profile:
@@ -462,7 +466,7 @@ AppController *gApp;
   if (haveControllers) {
     l = [[UILabel alloc] initWithFrame:CGRectMake(0, 185, 300, 20)];
     l.textColor = [UIColor whiteColor];
-    l.textAlignment = UITextAlignmentCenter;
+    l.textAlignment = NSTextAlignmentCenter;
     l.backgroundColor = [UIColor clearColor];
     l.text = [NSString stringWithFormat:@"Controller DPad Sensitivity:"];
     [_hoverView addSubview:l];
